@@ -1,0 +1,36 @@
+# Cisco 2621XM Router Configuration
+# DHCP Server Setup for Two Subnets
+
+## Complete Configuration Commands (Copy-Paste)
+
+enable
+configure terminal
+
+interface FastEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+interface FastEthernet0/1
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+
+ip dhcp pool PoolA
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.1
+exit
+
+ip dhcp pool PoolB
+network 192.168.2.0 255.255.255.0
+default-router 192.168.2.1
+exit
+
+end
+write memory
+
+## Verification Commands
+
+show ip interface brief
+show ip dhcp binding
+show ip dhcp server statistics
