@@ -1,0 +1,19 @@
+# DHCP Lab Verification Commands
+
+## On Router CLI:
+show ip interface brief
+show running-config | include dhcp
+show ip dhcp binding
+
+## On Host A Command Prompt:
+ipconfig /all
+ping 192.168.2.2
+
+## On Host B Command Prompt:
+ipconfig /all
+ping 192.168.1.2
+
+## Expected Results:
+Host A IP: 192.168.1.2
+Host B IP: 192.168.2.2
+Ping: 0% packet loss
